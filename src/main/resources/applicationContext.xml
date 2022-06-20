@@ -10,16 +10,21 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
-          class="ru.vasileva.springlearn.ClassicalMusic">
+          class="ru.vasileva.springlearn.ClassicalMusic"
+          init-method="doMyUnit"
+          destroy-method="doMyDestroy"
+    factory-method="getClassicalMusic">
     </bean>
 
-    <bean id="musicPlayer"
-          class="ru.vasileva.springlearn.MusicPlayer">
+<!--    <bean id="musicPlayer"-->
+<!--          class="ru.vasileva.springlearn.MusicPlayer"-->
+<!--          scope="prototype">-->
+
 <!--        <constructor-arg ref="musicBean"/>-->
-        <property name="music" ref="musicBean"/>
+<!--        <property name="music" ref="musicBean"/>-->
 
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+<!--        <property name="name" value="${musicPlayer.name}"/>-->
+<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+<!--    </bean>-->
 
 </beans>
